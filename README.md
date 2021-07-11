@@ -1,4 +1,5 @@
 [![Actions Status](https://github.com/aleksandrtamrazov/rails-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/aleksandrtamrazov/rails-project-lvl1/actions)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
 # HexletCode
 
