@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/aleksandrtamrazov/rails-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/aleksandrtamrazov/rails-project-lvl1/actions)
+
 # HexletCode
 
 Welcome my first gem. Form generator - DSL, with the help of which it is convenient to generate forms. This library takes on tasks that usually require writing a lot of boilerplate code, such as error handling. In the Rails world, Simple Form is used for this. Our generator is conceptually similar to it, but much simpler.
