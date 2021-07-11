@@ -25,8 +25,10 @@ jobs:
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
-      - name: RuboCop Linter Action
+      - name: RuboCop Linter
         uses: andrewmcodes/rubocop-linter-action@v3.3.0
+        with:
+          action_config_path: ".github/config/rubocop_linter_action.yml" # Note: this is the default location
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
