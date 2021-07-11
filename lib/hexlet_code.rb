@@ -2,6 +2,7 @@
 
 require_relative 'hexlet_code/version'
 
+# HexletCode module
 module HexletCode
   class Error < StandardError; end
   # Your code goes here...
@@ -17,5 +18,9 @@ module HexletCode
       end
       result = block_given? ? "#{result}>#{yield}</#{tag}>" : "#{result}>"
     end
+  end
+
+  def self.form_for(user, hash = { url: '#' })
+    "<form action=\"#{hash[:url]}\" method=\"post\">#{user.name}</form>"
   end
 end
