@@ -7,7 +7,11 @@ class Input
 
   def self.build(user, name)
     label = Tag.build('label', for: name){name.capitalize}
-    input = Tag.build('input', type: 'text', value: user[:"#{name}"], name: name)
+    if user[:"#{name}"]
+      input = Tag.build('input', type: 'text', name: name, value: user[:"#{name}"])
+    else
+      input = Tag.build('input', type: 'text', name: name)
+    end
 
     return "#{label}#{input}"
   end

@@ -7,14 +7,6 @@ class HexletCodeTest < Minitest::Test
     refute_nil ::HexletCode::VERSION
   end
 
-  # This test only for second step in hexlet programm
-
-  # def test_build
-  #   br = HexletCode::Tag.build('br')
-
-  #   assert_equal '<br>', br
-  # end
-
   User1 = Struct.new(:name, :job, keyword_init: true)
 
   def test_form_for
@@ -22,8 +14,8 @@ class HexletCodeTest < Minitest::Test
     test_form_1 = HexletCode.form_for user do |f| end
     test_form_2 = HexletCode.form_for user, url: '/users' do |f| end
 
-    assert_equal '<form action="#" method="post"></form>', test_form_1
-    assert_equal '<form action="/users" method="post"></form>', test_form_2
+    assert_equal "<form action=\"#\" method=\"post\"></form>", test_form_1
+    assert_equal "<form action=\"/users\" method=\"post\"></form>", test_form_2
   end
 
   User2 = Struct.new(:name, :job, :gender, keyword_init: true)
@@ -36,7 +28,7 @@ class HexletCodeTest < Minitest::Test
       f.input :gender, as: :select, collection: %w[m f]
     end
 
-    assert_equal '<form action="#" method="post"><input type="text" value="rob" name="name"><textarea cols="20" rows="40" name="job">hexlet</textarea><select name="gender"><option value="m">m</option><option value="f">f</option></select></form>', test_form_with_inputs
+    assert_equal '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob"><textarea cols="20" rows="40" name="job">hexlet</textarea><select name="gender"><option value="m">m</option><option value="f">f</option></select></form>', test_form_with_inputs
   end
 
   User3 = Struct.new(:name, :job, keyword_init: true)

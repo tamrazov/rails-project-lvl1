@@ -7,7 +7,6 @@ require_relative 'hexlet_code/form'
 # HexletCode module
 module HexletCode
   class Error < StandardError; end
-  # Your code goes here...
 
   def self.form_for(user, url: '#')
     form = Form.new(user, url)
