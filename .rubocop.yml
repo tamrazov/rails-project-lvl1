@@ -1,0 +1,15 @@
+require: 'rubocop-rails'
+
+Style/Documentation:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: false
+Rails/RefuteMethods:
+  Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+

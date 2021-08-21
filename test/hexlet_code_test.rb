@@ -11,11 +11,11 @@ class HexletCodeTest < Minitest::Test
 
   def test_form_for
     user = User1.new name: 'rob'
-    test_form_1 = HexletCode.form_for user do |f| end
-    test_form_2 = HexletCode.form_for user, url: '/users' do |f| end
+    test_form = HexletCode.form_for user do |f| end
+    test_form_url = HexletCode.form_for user, url: '/users' do |f| end
 
-    assert_equal "<form action=\"#\" method=\"post\"></form>", test_form_1
-    assert_equal "<form action=\"/users\" method=\"post\"></form>", test_form_2
+    assert_equal '<form action="#" method="post"></form>', test_form
+    assert_equal '<form action="/users" method="post"></form>', test_form_url
   end
 
   User2 = Struct.new(:name, :job, :gender, keyword_init: true)
@@ -28,7 +28,8 @@ class HexletCodeTest < Minitest::Test
       f.input :gender, as: :select, collection: %w[m f]
     end
 
-    assert_equal '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob"><textarea cols="20" rows="40" name="job">hexlet</textarea><select name="gender"><option value="m">m</option><option value="f">f</option></select></form>', test_form_with_inputs
+    assert_equal '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob"><textarea cols="20" rows="40" name="job">hexlet</textarea><select name="gender"><option value="m">m</option><option value="f">f</option></select></form>',
+                 test_form_with_inputs
   end
 
   User3 = Struct.new(:name, :job, keyword_init: true)
@@ -42,6 +43,7 @@ class HexletCodeTest < Minitest::Test
       f.submit
     end
 
-    assert_equal '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name"><label for="job">Job</label><input type="text" name="job" value="hexlet"><input type="submit" value="Save" name="commit"></form>', test_submit
+    assert_equal '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name"><label for="job">Job</label><input type="text" name="job" value="hexlet"><input type="submit" value="Save" name="commit"></form>',
+                 test_submit
   end
 end

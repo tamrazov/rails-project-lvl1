@@ -9,15 +9,15 @@ class InputBuilder
   attr_accessor :user, :name, :attrs
 
   def self.build(user, name, attrs)
-    input = Input.build(user, name) if attrs.length == 0
+    input = Input.build(user, name) if attrs.length.zero?
 
     attrs.each do |attr|
-      case attr[:as]
-      when :text
-        input = Textarea.build(user, name)
-      else
-        input = Select.build(user, name, attr)
-      end
+      input = case attr[:as]
+              when :text
+                Textarea.build(user, name)
+              else
+                Select.build(user, name, attr)
+              end
     end
 
     input

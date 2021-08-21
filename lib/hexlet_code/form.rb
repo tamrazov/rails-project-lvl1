@@ -25,5 +25,4 @@ class Form
   def build
     Tag.build('form', action: @url, method: 'post') { @tags.join }
   end
-
 end

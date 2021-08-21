@@ -6,13 +6,13 @@ class Input
   attr_accessor :user, :name
 
   def self.build(user, name)
-    label = Tag.build('label', for: name){name.capitalize}
-    if user[:"#{name}"]
-      input = Tag.build('input', type: 'text', name: name, value: user[:"#{name}"])
-    else
-      input = Tag.build('input', type: 'text', name: name)
-    end
+    label = Tag.build('label', for: name) { name.capitalize }
+    input = if user[:"#{name}"]
+              Tag.build('input', type: 'text', name: name, value: user[:"#{name}"])
+            else
+              Tag.build('input', type: 'text', name: name)
+            end
 
-    return "#{label}#{input}"
+    "#{label}#{input}"
   end
 end
